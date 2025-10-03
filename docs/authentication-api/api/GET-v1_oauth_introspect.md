@@ -1,23 +1,24 @@
-# GET /v1/oauth/introspect
-
-Introspect an access token.
+# Introspect an access token.
 
 This endpoint checks the validity of an access token and returns its metadata.
 
-### cURL
+### Request
 
 ```bash
-curl -X GET "$BASE_URL/v1/oauth/introspect" \
-  -H "Authorization: Bearer $AUTH_TOKEN"
+GET https://authentication-api.com/v1/oauth/introspect
 ```
 
 ### Parameters
 
-**Header Parameters**
+<!-- tabs:start -->
+
+#### **Headers**
 
 | Name            | Type     | Required | Description                                              |
 | --------------- | -------- | -------- | -------------------------------------------------------- |
 | `Authorization` | `string` | Yes      | The access token to introspect, prefixed with `Bearer `. |
+
+<!-- tabs:end -->
 
 ### Responses
 
@@ -59,16 +60,16 @@ The request is unauthorized, likely because the token is invalid, expired, or no
 
 **Body Schema**
 
-| Name      | Type     | Description        |
-| --------- | -------- | ------------------ |
-| `type`    | `string` | The error type.    |
-| `message` | `string` | The error message. |
+| Name      | Type     | Description                                        |
+| --------- | -------- | -------------------------------------------------- |
+| `type`    | `string` | The error type (`TOKEN_INVALID`, `TOKEN_EXPIRED`). |
+| `message` | `string` | The error message.                                 |
 
 **Example**
 
 ```json
 {
-  "type": "unauthorized",
+  "type": "TOKEN_INVALID",
   "message": "Token is invalid or expired."
 }
 ```

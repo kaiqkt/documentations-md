@@ -2,8 +2,6 @@
 
 The Authentication API is an application that provides a **central platform for authentication, authorization, client, and session management.** It is used by different applications (e.g., mobile and web front-ends) to integrate securely into our ecosystem.
 
-Based on [OAuth2.0](https://www.rfc-editor.org/rfc/rfc6749);[PKCE](https://www.rfc-editor.org/rfc/rfc7636)
-
 ## Design
 
 ```mermaid
@@ -49,3 +47,8 @@ flowchart LR
    - Implements the OAuth 2.0 authorization code flow with PKCE for secure authorization of public clients.
 3. **[Session management](/authentication-api/domains?id=introspection)**
    - Provides a secure mechanism to track and manage user sessions after authentication. It ensures that once a user has been authenticated, they can access the application's resources without needing to re-enter their credentials for every request.
+
+## Support material
+
+- [The OAuth 2.0 Authorization Framework](https://www.rfc-editor.org/rfc/rfc6749)
+- [Proof Key for Code Exchange by OAuth Public Clients](https://www.rfc-editor.org/rfc/rfc7636)

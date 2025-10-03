@@ -5,7 +5,7 @@ This endpoint invalidates a specific user session, effectively logging the user 
 ### Request
 
 ```bash
- DELETE https://authentication-api.com/v1/session/{session_id}
+DELETE https://authentication-api.com/v1/session/{session_id}
 ```
 
 ### Request
@@ -20,10 +20,10 @@ This endpoint invalidates a specific user session, effectively logging the user 
 
 #### **Headers**
 
-| Name            | Type     | Required | Description                                   |
-| --------------- | -------- | -------- | --------------------------------------------- |
-| `X-User-Id`     | `string` | Yes      | The ID of the user owning the session.        |
-| `Authorization` | `string` | Yes      | The access token the user owning the session. |
+| Name            | Type     | Required | Description                                 |
+| --------------- | -------- | -------- | ------------------------------------------- |
+| `X-User-Id`     | `string` | Yes      | The ID of the user owning the session.      |
+| `Authorization` | `string` | Yes      | User access token, prefixed with `Bearer `. |
 
 <!-- tabs:end -->
 

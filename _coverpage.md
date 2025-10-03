@@ -3,4 +3,4 @@
 ### Understand bad code easily
 
 [Start Learn](README.md)
-[Github](https://github.com/kaiqkt)
+[Github](https://github.com/kaiqkt/documentations-md)

@@ -3,7 +3,7 @@
 This is the first step in the OAuth 2.0 Authorization Code Flow with PKCE. The client requests an authorization code by providing user credentials.
 
 ```bash
- POST https://authentication-api.com/v1/oauth/authorize
+POST https://authentication-api.com/v1/oauth/authorize
 ```
 
 ### Request
