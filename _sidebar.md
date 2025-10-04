@@ -2,10 +2,9 @@
 - Authentication
 
   - [Introduction](/docs/authentication-api/README.md)
-  - Application
+  - Application API
 
     - OAuth
-      - [Request an authorization code](/docs/authentication-api/api/request-an-authorization-code.md)
       - [Request an access token](/docs/authentication-api/api/request-an-access-token.md)
       - [Introspect an access token](/docs/authentication-api/api/introspect-an-access-token.md)
     - Session

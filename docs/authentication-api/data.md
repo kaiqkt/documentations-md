@@ -1,20 +1,14 @@
-## Relational Entities
+## Data Model
 
 1. **Users**
 
    - This table stores user accounts, including credentials and verification status.
    - `id` is a unique identifier for each user.
    - `email` must be unique.
+   - `password` must be in hash format.
    - `authentication_type` defines the login method (e.g., `PASSWORD`, `GOOGLE`).
 
-2. **Authorization Codes**
-
-   - Stores authorization codes for the OAuth 2.0 PKCE flow.
-   - `code` is the unique authorization code.
-   - `user_id` links each code to a user.
-   - `expire_at` defines the code's expiration time.
-
-3. **Sessions**
+2. **Sessions**
    - Manages authenticated user sessions.
    - `id` is the unique session identifier.
    - `refresh_token` is used to obtain new access tokens.
@@ -33,15 +27,6 @@ erDiagram
         TIMESTAMP updated_at
     }
 
-    AUTHORIZATION_CODES {
-        VARCHAR(255) code PK
-        VARCHAR(255) redirect_uri
-        VARCHAR(255) code_challenge
-        VARCHAR(26) user_id FK
-        TIMESTAMP created_at
-        TIMESTAMP expire_at
-    }
-
     SESSIONS {
         VARCHAR(26) id PK
         VARCHAR(255) refresh_token UK
@@ -52,7 +37,6 @@ erDiagram
         TIMESTAMP updated_at
     }
 
-    USERS ||--o{ AUTHORIZATION_CODES : "issues"
     USERS ||--o{ SESSIONS : "creates"
 ```
 

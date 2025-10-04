@@ -1,14 +1,14 @@
-# Introspect an access token.
+# Introspect an Access Token
 
 This endpoint checks the validity of an access token and returns its metadata.
 
-### Request
+### Endpoint
 
 ```bash
 GET https://authentication-api.com/v1/oauth/introspect
 ```
 
-### Parameters
+### Headers
 
 <!-- tabs:start -->
 
@@ -20,7 +20,7 @@ GET https://authentication-api.com/v1/oauth/introspect
 
 <!-- tabs:end -->
 
-### Responses
+### Possible Responses
 
 <!-- tabs:start -->
 

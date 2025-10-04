@@ -1,6 +1,6 @@
-# Kaiqkt apps documentation
+# Kaiqkt Apps Documentation
 
-### Understand bad code easily
+### Understand complex code easily
 
-[Start Learn](README.md)
+[Get Started](README.md)
 [Github](https://github.com/kaiqkt/documentations-md)

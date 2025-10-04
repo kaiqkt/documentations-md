@@ -1,6 +1,6 @@
 # Deployment Setup
 
-This document describes how to build and run the Docsify documentation using Docker.
+This document describes how to build and run the Docsify documentation locally using Docker.
 
 ## Prerequisites
 

@@ -1,37 +1,25 @@
-# Request an access token.
+# Request an Access Token
 
-This endpoint exchanges an authorization code or a refresh token for a new access token.
+This endpoint exchanges a refresh token for a new access token.
 
 ```bash
 POST https://authentication-api.com/v1/oauth/token
 ```
 
-### Request
+### Body
 
 <!-- tabs:start -->
 
 #### **Body**
 
-| Name            | Type     | Required | Description                                                                   |
-| --------------- | -------- | -------- | ----------------------------------------------------------------------------- |
-| `grant_type`    | `string` | Yes      | The grant type. Must be `authorization_code` or `refresh_token`.              |
-| `code`          | `string` | No       | The authorization code (required if `grant_type` is `authorization_code`).    |
-| `code_verifier` | `string` | No       | The PKCE code verifier (required if `grant_type` is `authorization_code`).    |
-| `refresh_token` | `string` | No       | The refresh token (required if `grant_type` is `refresh_token`).              |
-| `redirect_uri`  | `string` | No       | The original redirect URI (required if `grant_type` is `authorization_code`). |
+| Name            | Type     | Required | Description                                                                    |
+| --------------- | -------- | -------- | ------------------------------------------------------------------------------ |
+| `grant_type`    | `string` | Yes      | The grant type. Must be `refresh_token`.                                       |
+| `refresh_token` | `string` | No       | The refresh token (required if `grant_type` is `refresh_token` or `password`). |
+| `email`         | `string` | No       | User registered email.                                                         |
+| `password`      | `string` | No       | User registered password.                                                      |
 
-Example for **Authorization Code**
-
-```json
-{
-  "grant_type": "authorization_code",
-  "code": "SplxlOBeZQQYbYS6WxSbIA",
-  "redirect_uri": "https://client.app/callback",
-  "code_verifier": "dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk"
-}
-```
-
-Example for **Refresh Token**
+**Example for Refresh Token**
 
 ```json
 {
@@ -40,15 +28,24 @@ Example for **Refresh Token**
 }
 ```
 
+**Example for Password**
+
+```json
+{
+  "email": "kt@kt.com",
+  "password": "strong-password"
+}
+```
+
 <!-- tabs:end -->
 
-### Responses
+### Possible Responses
 
 <!-- tabs:start -->
 
 #### **200 OK**
 
-Access token was created successfully.
+The access token was created successfully.
 
 **Body Schema**
 
@@ -90,9 +87,9 @@ The request was malformed, such as having an invalid grant type or a missing req
 }
 ```
 
-#### **401 Unauthorized**
+#### **401 Not Found**
 
-The authorization code, refresh token, or other credential is invalid or expired.
+Invalid credentials.
 
 **Body Schema**
 
@@ -105,14 +102,14 @@ The authorization code, refresh token, or other credential is invalid or expired
 
 ```json
 {
-  "type": "unauthorized",
-  "message": "The authorization code is invalid or has expired."
+  "type": "unathorized",
+  "message": "unathorized"
 }
 ```
 
 #### **404 Not Found**
 
-The authorization code does not exists.
+The session or user does not exist.
 
 **Body Schema**
 
@@ -126,7 +123,7 @@ The authorization code does not exists.
 ```json
 {
   "type": "not_found",
-  "message": "The authorization code not found"
+  "message": "not found."
 }
 ```
 

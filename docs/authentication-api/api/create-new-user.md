@@ -1,14 +1,14 @@
-# Create a new user.
+# Create a New User
 
 This endpoint registers a new user in the system with the provided email and password.
 
-### Request
+### Endpoint
 
 ```bash
 POST https://authentication-api.com/v1/user
 ```
 
-### Request
+### Body
 
 <!-- tabs:start -->
 
@@ -19,7 +19,7 @@ POST https://authentication-api.com/v1/user
 | `email`    | `string` | Yes      | The user's unique email address.                         |
 | `password` | `string` | Yes      | The user's password (must meet complexity requirements). |
 
-**Exemple**
+**Example**
 
 ```json
 {
@@ -30,11 +30,11 @@ POST https://authentication-api.com/v1/user
 
 <!-- tabs:end -->
 
-### Responses
+### Possible Responses
 
 <!-- tabs:start -->
 
-#### **200 OK**
+#### **201 Created**
 
 The user was created successfully. The response contains basic information about the new user.
 
